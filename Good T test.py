@@ -4,10 +4,17 @@ Created on Thu Jan 21 16:17:19 2021
 Good T-test
 @author: matte
 """
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 21 16:17:19 2021
+Good T-test
+@author: matte
+"""
 import numpy as np
 import random
+from scipy import stats
 import matplotlib.pyplot as plt
-a= list(())#insert dataset here
+a= [2.07,2.05,2.01,1.97,1.95,1.92,1.87,1.8,1.7,1.6]#insert dataset here
 mu_a=np.mean(a)
 sigma_a=(np.std(a))
 print("The Mean of set a is", mu_a)
@@ -17,7 +24,7 @@ print("The number of items in set a is",N_a)
 SEM_a=sigma_a/(np.sqrt(N_a))
 print("The standard error for set a is", SEM_a)
 print("Do you want to just run a t-test and find other info with full data?")
-c= list(())#insert dataset here
+c= [2.075,2.072,2.068,2.06,2.01,1.982,1.952,1.915,1.865,1.787]#insert dataset here
 print("")
 mode= input("Input:", )
 if mode=="yes":
@@ -65,6 +72,7 @@ if mode=="no":
     print("The t-statistic between a and b is",t)
     df=((((sigma_a**2)/N_a)+((sigma_b**2/N_b)))**2)/((sigma_a**4/((N_a)**2*(N_a-1)+(sigma_b**4/((N_b)**2*(N_b-1))))))
     print("With", df, "degrees of freedom")
+    print("student t-test and p",stats.ttest_ind(a,b))
     print("")
     
     graph=input("Do you want the bell curves for a and b?")
